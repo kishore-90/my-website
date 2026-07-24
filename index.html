@@ -1,74 +1,605 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KP POWERTECH</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-
-  <!-- Unified CSS -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KP POWERTECH - Licensed Electrical Contractors & Engineers | Bommasandra & Bangalore</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbe1',
+                            100: '#fef3c7',
+                            400: '#fbbf24',
+                            500: '#f59e0b', // Electric Amber/Gold
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a', // Deep Industrial Navy
+                            950: '#020617',
+                        },
+                        electric: {
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
 </head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <img src="assets/logo.svg" alt="KP POWERTECH Logo" class="logo" style="height:50px;">
-    <div id="darkToggle">🌙</div>
-  </nav>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-brand-500 selection:text-white">
 
-  <!-- Hero Section with Branded Background -->
-  <section class="hero" style="
-    background-image: url('assets/background.jpg');
-    background-size: cover;
-    background-position: center;
-  ">
-    <h1>Powering Innovation</h1>
-    <p>Reliable energy solutions for modern businesses</p>
-    <a href="#services" class="btn btn-green">Get Started</a>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="card">Energy Consulting</div>
-    <div class="card">Power Solutions</div>
-    <div class="card">Sustainability Projects</div>
-  </section>
-
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/918105222992" target="_blank" id="whatsappBtn" class="whatsapp-btn">💬</a>
-
-  <!-- Floating Quote Button -->
-  <button id="quoteBtn" class="quote-btn">📝 Request a Quote</button>
-
-  <!-- Sticky Contact Bar -->
-  <div class="contact-bar">
-    <a href="tel:08105222992" class="contact-icon">📞</a>
-    <a href="mailto:info@kppowertech.in" class="contact-icon">✉️</a>
-    <a href="https://wa.me/918105222992" target="_blank" class="contact-icon">💬</a>
-  </div>
-
-  <!-- Quote Modal -->
-  <div id="quoteModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Request a Quote</h2>
-      <form action="https://formspree.io/f/yourFormID" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
-        <textarea name="details" placeholder="Project Details"></textarea>
-        <button type="submit" class="btn btn-green">Submit</button>
-      </form>
+    <!-- Top Utility Info Bar -->
+    <div class="bg-navy-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 hidden sm:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center gap-1.5 text-slate-300">
+                    <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Bommasandra & Bangalore Industrial Hubs
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Mon - Sat: 09:30 AM - 06:30 PM
+                </span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-800 text-brand-400 font-mono text-[11px] border border-slate-700">
+                    <strong>Managing Partner:</strong> Kishore R (B.E EEE)
+                </span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="mailto:info@kppowertech.in" class="hover:text-brand-400 transition-colors flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    info@kppowertech.in
+                </a>
+                <a href="tel:+918105222992" class="text-brand-400 font-semibold hover:text-brand-500 transition-colors flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.27 1.11l-2.2 2.2z"/></svg>
+                    +91 81052 22992 / +91 95003 90001
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Success Popup -->
-  <div id="successPopup" class="success-popup">✅ Your request has been submitted!</div>
+    <!-- Main Navigation Bar -->
+    <nav class="sticky top-0 w-full bg-navy-900/95 backdrop-blur-md z-50 border-b border-slate-800 shadow-xl" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-brand-400 via-amber-500 to-brand-600 rounded-xl flex items-center justify-center p-2 shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform">
+                        <svg class="w-full h-full text-navy-950" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M50 5 L88 25 L88 75 L50 95 L12 75 L12 25 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/>
+                            <path d="M54 18 L26 52 H48 L40 82 L74 44 H50 Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1">
+                            <span class="font-extrabold text-2xl text-white tracking-tight">KP POWERTECH</span>
+                        </div>
+                        <p class="text-[10px] text-brand-400 font-medium tracking-widest uppercase">Licensed Electrical Contractors & Consultants</p>
+                    </div>
+                </a>
 
-  <!-- Unified JS -->
-  <script src="script.js"></script>
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-slate-200 hover:text-brand-400 font-medium text-sm transition-colors">Core Services</a>
+                    <a href="#why-us" class="text-slate-200 hover:text-brand-400 font-medium text-sm transition-colors">Why Choose Us</a>
+                    <a href="#location" class="text-slate-200 hover:text-brand-400 font-medium text-sm transition-colors">Hours & Location</a>
+                    <a href="#quote" class="bg-gradient-to-r from-brand-500 to-brand-600 text-navy-950 font-bold px-5 py-2.5 rounded-lg hover:from-brand-400 hover:to-brand-500 transition-all shadow-md shadow-brand-500/20 text-sm flex items-center gap-2">
+                        <span>Get Free Quote</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <div class="md:hidden flex items-center gap-2">
+                    <a href="tel:08105222992" class="p-2 bg-brand-500 text-navy-950 rounded-lg font-bold text-xs flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.27 1.11l-2.2 2.2z"/></svg>
+                        Call
+                    </a>
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white p-2 focus:outline-none">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-950 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#services" class="block px-3 py-2 text-base font-medium text-slate-200 hover:text-brand-400 hover:bg-slate-900 rounded-md">Core Services</a>
+            <a href="#why-us" class="block px-3 py-2 text-base font-medium text-slate-200 hover:text-brand-400 hover:bg-slate-900 rounded-md">Why Choose Us</a>
+            <a href="#location" class="block px-3 py-2 text-base font-medium text-slate-200 hover:text-brand-400 hover:bg-slate-900 rounded-md">Hours & Location</a>
+            <a href="#quote" class="block w-full text-center px-4 py-3 bg-brand-500 text-navy-950 font-bold rounded-lg mt-2">Request Free Quote</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-navy-900 text-white overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-electric-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs sm:text-sm font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                        ⚡ Government Licensed Electrical Contractors
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+                        Engineered Power, Solar & Safety Solutions in <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-amber-300 to-brand-500">Bommasandra & Bangalore</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        Trusted expertise for industrial plants, commercial buildings, and residential power systems. From high-voltage distribution to solar turnkeys, maintenance, and smart CCTV IT setups.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4 text-xs font-semibold text-slate-300">
+                        <span class="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
+                            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Turnkey Execution
+                        </span>
+                        <span class="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
+                            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Safety Compliant
+                        </span>
+                        <span class="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
+                            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Rapid On-Site Response
+                        </span>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
+                        <a href="tel:+918105222992" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-navy-950 font-extrabold rounded-xl text-base transition-all shadow-xl shadow-brand-500/25 flex items-center justify-center gap-3 transform hover:-translate-y-0.5">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.27 1.11l-2.2 2.2z"/></svg>
+                            Call +91 81052 22992
+                        </a>
+                        <a href="tel:+919500390001" class="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-base border border-slate-700 transition-all flex items-center justify-center gap-2">
+                            Call +91 95003 90001
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="relative bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-sm">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-700 mb-6">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Key Capabilities</span>
+                            <span class="px-2.5 py-1 rounded bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold">Active Support</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/50 flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-brand-500/20 flex items-center justify-center flex-shrink-0 text-brand-400">⚡</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">High Voltage & Solar Setups</h4>
+                                    <p class="text-xs text-slate-400">Commercial panel installation, solar energy design & load optimization.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/50 flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400">🛠️</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Preventive Maintenance & Repair</h4>
+                                    <p class="text-xs text-slate-400">Fault diagnosis, emergency industrial servicing & statutory safety compliance.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/50 flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400">📹</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Smart CCTV & IT Infrastructure</h4>
+                                    <p class="text-xs text-slate-400">Network cabling, surveillance integration & smart commercial security.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between text-xs text-slate-300">
+                            <span>📍 Bommasandra Industrial Hub</span>
+                            <a href="#location" class="text-brand-400 hover:underline font-semibold">View Map & Address &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section id="services" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-700 font-bold tracking-wider text-xs uppercase px-3 py-1 bg-brand-100 rounded-full inline-block mb-3">Our Core Services</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight">Comprehensive Engineering & Electrical Solutions</h2>
+                <p class="mt-4 text-base sm:text-lg text-slate-600">End-to-end electrical, energy, safety, and infrastructure solutions tailored for industrial facilities, commercial complexes, and modern residences.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group transform hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-navy-950 transition-colors">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Electrical Engineering & Consulting</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Commercial & industrial electrical system design, engineering consultancy, load management, and technical safety blueprints.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-2 pt-4 border-t border-slate-100">
+                        <li class="flex items-center gap-2">✔ Industrial Blueprint Design</li>
+                        <li class="flex items-center gap-2">✔ Load Analysis & Calculation</li>
+                        <li class="flex items-center gap-2">✔ Compliance Consultancy</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group transform hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-navy-950 transition-colors">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Power Distribution & Solar</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            High-voltage setup, rooftop solar energy design & installation, panel boards, transformers, and energy optimization.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-2 pt-4 border-t border-slate-100">
+                        <li class="flex items-center gap-2">✔ Solar PV Systems Setup</li>
+                        <li class="flex items-center gap-2">✔ High-Voltage Panels</li>
+                        <li class="flex items-center gap-2">✔ Energy Cost Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group transform hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-navy-950 transition-colors">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Maintenance & Repair</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            General electrical maintenance, fault diagnosis, preventive servicing, emergency breakdown repairs, and safety Audits.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-2 pt-4 border-t border-slate-100">
+                        <li class="flex items-center gap-2">✔ Rapid Fault Diagnosis</li>
+                        <li class="flex items-center gap-2">✔ Preventive AMC Plans</li>
+                        <li class="flex items-center gap-2">✔ Industrial Safety Servicing</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group transform hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-navy-950 transition-colors">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">CCTV & IT Solutions</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Commercial CCTV surveillance setups, structured network cabling, server room wiring, and integrated smart security systems.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-2 pt-4 border-t border-slate-100">
+                        <li class="flex items-center gap-2">✔ Commercial IP Surveillance</li>
+                        <li class="flex items-center gap-2">✔ Structured Network Cabling</li>
+                        <li class="flex items-center gap-2">✔ Smart Access Control</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-navy-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-400 font-bold tracking-wider text-xs uppercase px-3 py-1 bg-brand-500/10 rounded-full inline-block border border-brand-500/20">The KP Advantage</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Why Partner With KP POWERTECH?</h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        We bring certified engineering precision, absolute adherence to local electrical standards, and dependable on-site service across Bangalore's major industrial belts.
+                    </p>
+                    
+                    <div class="pt-4">
+                        <a href="tel:08105222992" class="inline-flex items-center gap-3 px-6 py-3.5 bg-brand-500 hover:bg-brand-400 text-navy-950 font-bold rounded-xl transition-all shadow-lg shadow-brand-500/20">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.27 1.11l-2.2 2.2z"/></svg>
+                            Speak With Our Lead Engineer
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-6 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+                        <div class="w-12 h-12 bg-brand-500/10 text-brand-400 rounded-xl flex items-center justify-center font-black text-xl mb-4 border border-brand-500/20">📜</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Licensed & Certified</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Fully certified government electrical contractors and experienced engineering professionals adhering to strict safety codes.</p>
+                    </div>
+
+                    <div class="p-6 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+                        <div class="w-12 h-12 bg-brand-500/10 text-brand-400 rounded-xl flex items-center justify-center font-black text-xl mb-4 border border-brand-500/20">🔄</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Turnkey Execution</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Single point of responsibility: from initial blueprint consulting and wiring to solar setups, panels, and long-term maintenance.</p>
+                    </div>
+
+                    <div class="p-6 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+                        <div class="w-12 h-12 bg-brand-500/10 text-brand-400 rounded-xl flex items-center justify-center font-black text-xl mb-4 border border-brand-500/20">⚙️</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Industrial Grade Standards</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Built to withstand heavy loads, meet rigorous compliance regulations, and provide long-term operational reliability.</p>
+                    </div>
+
+                    <div class="p-6 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+                        <div class="w-12 h-12 bg-brand-500/10 text-brand-400 rounded-xl flex items-center justify-center font-black text-xl mb-4 border border-brand-500/20">📍</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Local Expertise</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Rapid on-site response throughout Bommasandra, Hosur Road, Electronic City, and surrounding industrial hubs.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation & Quote Request Section -->
+    <section id="quote" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    
+                    <div class="lg:col-span-5 bg-navy-950 p-8 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+                        <div class="relative z-10 space-y-6">
+                            <span class="text-brand-400 font-bold text-xs uppercase tracking-wider">Free Consultation</span>
+                            <h2 class="text-3xl font-extrabold leading-tight">Discuss Your Electrical Project Today</h2>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Looking to upgrade your commercial infrastructure, set up solar energy systems, or install CCTV & security networks? Submit your query or call us directly.
+                            </p>
+                            
+                            <div class="pt-4 space-y-4 text-sm text-slate-300">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-brand-400">📞</div>
+                                    <div>
+                                        <div class="text-xs text-slate-400">Direct Phone</div>
+                                        <a href="tel:08105222992" class="font-bold text-white hover:text-brand-400">081052 22992</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-brand-400">✉️</div>
+                                    <div>
+                                        <div class="text-xs text-slate-400">Direct Email</div>
+                                        <a href="mailto:info@kppowertech.in" class="font-bold text-white hover:text-brand-400">info@kppowertech.in</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 pt-8 mt-8 border-t border-slate-800 text-xs text-slate-400">
+                            ⚡ Quick response within 2 hours during operating hours.
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 p-8 sm:p-12">
+                        <form id="quoteForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <h3 class="text-xl font-bold text-navy-950 mb-2">Request A Quote / Callback</h3>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Your Name *</label>
+                                    <input type="text" required placeholder="e.g. Rajesh Kumar" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Phone Number *</label>
+                                    <input type="tel" required placeholder="e.g. 0987654321" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Email Address</label>
+                                    <input type="email" placeholder="e.g. name@company.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Service Required *</label>
+                                    <select required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-slate-700">
+                                        <option value="">-- Select Service --</option>
+                                        <option value="Electrical Engineering & Consulting">Electrical Engineering & Consulting</option>
+                                        <option value="Power Distribution & Solar">Power Distribution & Solar</option>
+                                        <option value="Maintenance & Repair">Maintenance & Repair</option>
+                                        <option value="CCTV & IT Solutions">CCTV & IT Solutions</option>
+                                        <option value="Turnkey Industrial Setup">Turnkey Industrial Setup</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Project Details / Requirements</label>
+                                <textarea rows="3" placeholder="Briefly describe your site, power load requirements, or timeline..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-brand-500 hover:bg-brand-600 text-navy-950 font-extrabold rounded-xl text-base transition-all shadow-md">
+                                Submit Consultation Request &rarr;
+                            </button>
+
+                            <div id="formSuccessMessage" class="hidden p-4 rounded-xl bg-green-50 border border-green-200 text-green-800 text-sm font-semibold text-center">
+                                ✅ Thank you! Your request has been received. Our engineering team will contact you shortly.
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location, Hours & Business Details -->
+    <section id="location" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-700 font-bold tracking-wider text-xs uppercase px-3 py-1 bg-brand-100 rounded-full inline-block mb-3">Reach Our Office</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950">Business Information & Location</h2>
+                <p class="mt-3 text-slate-600 text-sm sm:text-base">Visit our engineering office or reach out for on-site visits across Bommasandra and Bangalore.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500/20 text-brand-700 rounded-xl flex items-center justify-center font-bold text-xl mb-6">📍</div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Office Address</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            <strong>KP POWERTECH</strong><br>
+                            No. 750/10, VNR Layout,<br>
+                            Near Shankar's Kitchen,<br>
+                            Bommasandra, Bangalore,<br>
+                            Karnataka – 560099
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://maps.google.com/?q=Bommasandra+Bangalore" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-700 hover:text-brand-800 uppercase tracking-wider">
+                            Get Driving Directions &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500/20 text-brand-700 rounded-xl flex items-center justify-center font-bold text-xl mb-6">🕒</div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Operating Hours</h3>
+                        <div class="space-y-3 text-sm text-slate-600">
+                            <div class="flex justify-between items-center py-1.5 border-b border-slate-200">
+                                <span>Monday – Saturday:</span>
+                                <span class="font-bold text-navy-950">09:30 AM – 06:30 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1.5 border-b border-slate-200">
+                                <span>Sunday:</span>
+                                <span class="text-slate-400 font-medium">Emergency Calls Only</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold">
+                            <span class="w-2 h-2 rounded-full bg-green-500"></span> Active Working Schedule
+                        </span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500/20 text-brand-700 rounded-xl flex items-center justify-center font-bold text-xl mb-6">📞</div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Direct Contact</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Connect directly with <strong>Kishore R (B.E EEE)</strong> for technical engineering queries or site visits.
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <p class="text-slate-700"><strong>Primary:</strong> <a href="tel:+918105222992" class="text-brand-700 font-bold hover:underline">+91 81052 22992</a></p>
+                            <p class="text-slate-700"><strong>Alternate:</strong> <a href="tel:+919500390001" class="text-brand-700 font-bold hover:underline">+91 95003 90001</a></p>
+                            <p class="text-slate-700"><strong>Email:</strong> <a href="mailto:info@kppowertech.in" class="text-brand-700 font-bold hover:underline">info@kppowertech.in</a></p>
+                            <p class="text-slate-700"><strong>Web:</strong> <a href="http://www.kppowertech.in" target="_blank" class="text-brand-700 font-bold hover:underline">www.kppowertech.in</a></p>
+                            <p class="text-slate-700"><strong>GST Status:</strong> <span class="font-mono text-emerald-800 font-bold bg-emerald-100 px-2 py-0.5 rounded text-xs">29ABEFK1642F1ZG</span></p>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <a href="tel:+918105222992" class="w-full py-3 bg-navy-900 text-white text-center font-bold text-xs rounded-xl block hover:bg-navy-800 transition-colors">
+                            Call Partner Directly
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-brand-500 rounded-lg flex items-center justify-center text-navy-950 font-bold">⚡</div>
+                    <div>
+                        <span class="text-white font-bold text-lg">KP POWERTECH</span>
+                        <p class="text-xs text-slate-500">Licensed Electrical Contractors & Engineering Solutions</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6 text-xs font-semibold text-slate-300">
+                    <a href="#services" class="hover:text-brand-400">Services</a>
+                    <a href="#why-us" class="hover:text-brand-400">Why Us</a>
+                    <a href="#quote" class="hover:text-brand-400">Get Quote</a>
+                    <a href="#location" class="hover:text-brand-400">Address</a>
+                </div>
+
+                <div class="text-xs text-slate-500 text-center md:text-right">
+                    <p>&copy; 2026 KP POWERTECH. All Rights Reserved.</p>
+                    <p class="mt-1">Bommasandra & Bangalore, Karnataka 560099 | GSTIN: <span class="text-slate-400 font-mono">29ABEFK1642F1ZG</span></p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    menuIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                });
+
+                const links = mobileMenu.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    });
+                });
+            }
+        });
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('formSuccessMessage');
+            if (successMsg) {
+                successMsg.classList.remove('hidden');
+                document.getElementById('quoteForm').reset();
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 6000);
+            }
+        }
+    </script>
 </body>
 </html>
